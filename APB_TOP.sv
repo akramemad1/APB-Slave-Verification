@@ -7,7 +7,7 @@ wrapper_if Iff (PCLK);
 
 APB_Wrapper apb_wrapper(Iff);
 
-//APB_TB apb_tb(Iff);       To be added
-//bind assertions           To be added
+APB_TB apb_tb(Iff);       
+bind APB_Wrapper APB_SVA sva(Iff);
 
 endmodule

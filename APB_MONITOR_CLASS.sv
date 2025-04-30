@@ -16,7 +16,7 @@ APB_Scoreboard_Object.scoreboard(seq1);
 APB_Coverage_Object.sample_data(seq1);
 
     
-endtask //
+endtask
 
 
 

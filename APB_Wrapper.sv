@@ -153,7 +153,7 @@ module APB_Slave #(
     state_e NextState, CurrentState;
     wire correct_slave;
     reg [3:0] address_encoding;
-    assign correct_slave = PSELx | (SLAVE_ID === address_encoding);
+    assign correct_slave = PSELx && (SLAVE_ID === address_encoding);
  // Next State Logic
     always @(*) begin
         case (CurrentState)
@@ -242,7 +242,7 @@ module APB_Slave #(
     end
 
  wire [1:0] encoding;
- assign encoding = PADDR[ADDR_WIDTH-2:ADDR_WIDTH-3];
+ assign encoding = PADDR[ADDR_WIDTH-1:ADDR_WIDTH-2];
  // ADDRESS Decoding
     always @(*) begin
         if (PSELx) begin
@@ -250,7 +250,7 @@ module APB_Slave #(
                 2'b00: address_encoding = 4'b0001; 
                 2'b01: address_encoding = 4'b0010; 
                 2'b10: address_encoding = 4'b0100; 
-                2'b11: address_encoding = 4'b0001; 
+                2'b11: address_encoding = 4'b1000; 
                 default: address_encoding = 4'b0000;
             endcase
         end else begin

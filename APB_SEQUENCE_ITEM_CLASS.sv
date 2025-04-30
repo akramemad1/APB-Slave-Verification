@@ -24,6 +24,7 @@ class APB_Sequence_Class;
 */
 
 constraint c{ 
+
 PRESETn dist {0:/10       ,1:/90};
 PENABLE dist {0:/10       ,1:/90};
 PSELx   dist {0:/10       ,1:/90};
@@ -48,7 +49,6 @@ PADDR   dist {
 };
 
 }
-
 
 endclass //APB_Sequence_Class
 
